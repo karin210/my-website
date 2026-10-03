@@ -2,6 +2,7 @@
 	import { profile } from '$lib/data/content';
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
+	import ServicesSection from '$lib/components/ServicesSection.svelte';
 	import SkillsSection from '$lib/components/SkillsSection.svelte';
 	import ExperienceSection from '$lib/components/ExperienceSection.svelte';
 	import TestimonialsSection from '$lib/components/TestimonialsSection.svelte';
@@ -16,6 +17,7 @@
 
 <HeroSection />
 <ProjectsSection />
+<ServicesSection />
 <SkillsSection />
 <ExperienceSection />
 <TestimonialsSection />

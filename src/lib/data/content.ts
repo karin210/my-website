@@ -18,6 +18,14 @@ export interface SkillGroup {
 	skills: string[];
 }
 
+export interface Service {
+	title: string;
+	description: string;
+	audiences: string[];
+	deliverables: string[];
+	engagement: string;
+}
+
 export interface Job {
 	period: string;
 	role: string;
@@ -53,6 +61,7 @@ export const profile = {
 
 export const navLinks: NavLink[] = [
 	{ label: 'Projects', href: '#projects' },
+	{ label: 'Services', href: '#services' },
 	{ label: 'Skills', href: '#skills' },
 	{ label: 'Experience', href: '#experience' },
 	{ label: 'FAQ', href: '#faq' }
@@ -92,6 +101,51 @@ export const projects: Project[] = [
 		tags: ['PWA', 'Vue', 'Mapbox'],
 		year: 2024,
 		href: '#'
+	}
+];
+
+export const services: Service[] = [
+	{
+		title: 'Websites & landing pages',
+		description: 'Fast, accessible marketing sites that explain what you do and convert visitors into leads.',
+		audiences: ['Companies', 'Professionals'],
+		deliverables: ['Design and build', 'CMS setup', 'SEO and performance tuning'],
+		engagement: 'Fixed price · 3–6 weeks'
+	},
+	{
+		title: 'Web app development',
+		description: 'Custom dashboards, portals and internal tools built from first prototype to production launch.',
+		audiences: ['Startups', 'Companies'],
+		deliverables: ['Architecture and API design', 'Frontend and backend build', 'Deployment and handover'],
+		engagement: 'Milestones · 2–4 months'
+	},
+	{
+		title: 'Design systems & UI audits',
+		description: 'A consistent, documented component library, or a review of your current UI with a prioritised fix list.',
+		audiences: ['Product teams', 'Agencies'],
+		deliverables: ['Component library', 'Accessibility audit', 'Design tokens and docs'],
+		engagement: 'Fixed price · 2–4 weeks'
+	},
+	{
+		title: 'White-label & outsourced delivery',
+		description: 'A reliable extra pair of hands for your clients’ projects, working quietly under your brand.',
+		audiences: ['Agencies', 'Outsourcers'],
+		deliverables: ['Pixel-accurate implementation', 'Clear written updates', 'NDA and handover docs'],
+		engagement: 'Per project or hourly'
+	},
+	{
+		title: 'Ongoing support & retainers',
+		description: 'Reserved monthly hours for improvements, bug fixes and maintenance, with fast turnaround.',
+		audiences: ['Companies', 'Professionals'],
+		deliverables: ['Prioritised backlog', 'Monitoring and updates', 'Monthly summary'],
+		engagement: 'Monthly retainer'
+	},
+	{
+		title: 'Consulting & code reviews',
+		description: 'Short, focused sessions to unblock your team, review pull requests or plan a technical roadmap.',
+		audiences: ['Product teams', 'Founders'],
+		deliverables: ['Written recommendations', 'Live walkthrough', 'Follow-up Q&A'],
+		engagement: 'Hourly or day rate'
 	}
 ];
 
