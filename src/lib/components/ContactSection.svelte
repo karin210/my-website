@@ -3,6 +3,12 @@
 	import { validateAll, type FieldName, type FieldValues } from '$lib/validation';
 	import FormField from './FormField.svelte';
 	import SecondaryButton from './buttons/SecondaryButton.svelte';
+	import whatsappIcon from '$lib/assets/icons/whatsapp-icon.svg?raw';
+	import phoneIcon from '$lib/assets/icons/phone-call-icon.svg?raw';
+
+	// wa.me needs the international number with digits only (no "+", spaces or dashes).
+	const whatsappHref = `https://wa.me/${profile.phone.replace(/\D/g, '')}`;
+	const phoneHref = `tel:${profile.phone.replace(/[^\d+]/g, '')}`;
 
 	const values: FieldValues = $state({ name: '', email: '', message: '' });
 	const edited: Record<FieldName, boolean> = $state({ name: false, email: false, message: false });
@@ -36,6 +42,20 @@
 		<header class="section-intro">
 			<h2 id="contact-title">Let's build something together</h2>
 			<p>Tell me about your project, or write directly to {profile.email}.</p>
+			<ul class="channels">
+				<li>
+					<SecondaryButton href={whatsappHref} external>
+						<span class="icon" aria-hidden="true">{@html whatsappIcon}</span>
+						WhatsApp
+					</SecondaryButton>
+				</li>
+				<li>
+					<SecondaryButton href={phoneHref}>
+						<span class="icon" aria-hidden="true">{@html phoneIcon}</span>
+						Call {profile.phone}
+					</SecondaryButton>
+				</li>
+			</ul>
 		</header>
 
 		{#if sent}
@@ -92,6 +112,23 @@
 
 	.panel :global(.field) {
 		color: var(--color-text);
+	}
+
+	.channels {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		list-style: none;
+		padding: 0;
+	}
+
+	.icon {
+		display: inline-flex;
+	}
+
+	.icon :global(svg) {
+		width: 1.25rem;
+		height: 1.25rem;
 	}
 
 	form {

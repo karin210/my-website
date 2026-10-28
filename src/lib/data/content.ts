@@ -54,6 +54,7 @@ export const profile = {
 	role: 'Frontend developer & designer',
 	location: 'Lisbon, Portugal',
 	email: 'hello@example.com',
+	phone: '+351 912 345 678',
 	headline: 'I build calm, fast interfaces for products people enjoy using.',
 	intro:
 		'Independent developer with 8 years of experience turning rough ideas into polished, accessible web apps. Currently open to new projects.'

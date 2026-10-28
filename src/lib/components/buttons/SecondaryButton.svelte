@@ -1,11 +1,16 @@
 <script lang="ts">
 	import type { ButtonProps } from './types';
 
-	let { href, type = 'button', disabled = false, children }: ButtonProps = $props();
+	let { href, external = false, type = 'button', disabled = false, children }: ButtonProps = $props();
 </script>
 
 {#if href}
-	<a class="btn secondary" {href}>{@render children()}</a>
+	<a
+		class="btn secondary"
+		{href}
+		target={external ? '_blank' : undefined}
+		rel={external ? 'noopener noreferrer' : undefined}>{@render children()}</a
+	>
 {:else}
 	<button class="btn secondary" {type} {disabled}>{@render children()}</button>
 {/if}

@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { profile, stats } from '$lib/data/content';
-	import PrimaryButton from './buttons/PrimaryButton.svelte';
-	import TertiaryButton from './buttons/TertiaryButton.svelte';
 </script>
 
 <section class="section" aria-labelledby="hero-title">
@@ -9,10 +7,6 @@
 		<p class="eyebrow">{profile.role} · {profile.location}</p>
 		<h1 id="hero-title">{profile.headline}</h1>
 		<p class="muted">{profile.intro}</p>
-		<div class="actions">
-			<PrimaryButton href="#contact">Let's work together</PrimaryButton>
-			<TertiaryButton href="#projects">View projects</TertiaryButton>
-		</div>
 	</div>
 
 	<dl class="stats">
@@ -38,12 +32,6 @@
 		font-weight: 600;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
-	}
-
-	.actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.75rem;
 	}
 
 	.stats {
