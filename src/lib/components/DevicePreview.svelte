@@ -29,7 +29,11 @@
 	</fieldset>
 
 	<figure class="stage">
-		<div class="device" style:aspect-ratio="{device.width} / {device.height}">
+		<div
+			class="device"
+			style:aspect-ratio="{device.width} / {device.height}"
+			style:--ratio={device.width / device.height}
+		>
 			<div class="screen" style:padding={screenInsets(device)}>
 				{#if screenshot}
 					<img
@@ -93,6 +97,8 @@
 		display: grid;
 		place-items: center;
 		aspect-ratio: 4 / 3;
+		/* Size containment: the device can't grow the stage, it is fitted inside it instead. */
+		container-type: size;
 		margin: 0;
 		border-radius: var(--radius);
 		background: var(--color-secondary);
@@ -101,12 +107,15 @@
 	/*
 	 * Screen and frame share one grid cell: the frame sits on top of the screenshot.
 	 * minmax(0, 1fr) tracks stop a large screenshot from stretching the device.
+	 * The width is the largest that fits the stage at the device's aspect ratio (92% of it).
 	 */
 	.device {
 		display: grid;
 		grid-template: minmax(0, 1fr) / minmax(0, 1fr);
-		height: 92%;
-		max-width: 100%;
+		width: min(92cqw, 92cqh * var(--ratio));
+		/* The frame's pixel size must not feed back into the box: width and aspect-ratio decide it. */
+		contain: size;
+		min-height: 0;
 	}
 
 	.screen,
