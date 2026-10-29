@@ -91,7 +91,7 @@
 
 	.deliverables li::before {
 		content: '✓';
-		color: var(--color-primary);
+		color: var(--color-accent-text);
 		font-weight: 700;
 	}
 
@@ -106,11 +106,5 @@
 	.engagement {
 		font-size: var(--text-sm);
 		font-weight: 600;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		.deliverables li::before {
-			color: var(--color-focus);
-		}
 	}
 </style>

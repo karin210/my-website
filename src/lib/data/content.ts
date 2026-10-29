@@ -1,5 +1,10 @@
 // Placeholder content — replace with the real information.
 
+import type { DeviceKind } from '$lib/data/devices';
+import manoloDesktop from '$lib/assets/images/Manolo-website-desktop-preview.png';
+import manoloPhone from '$lib/assets/images/Manolo-website-phone-preview.jpg';
+import manoloTablet from '$lib/assets/images/Manolo-website-tablet-preview.png';
+
 export interface NavLink {
 	label: string;
 	href: string;
@@ -11,6 +16,8 @@ export interface Project {
 	tags: string[];
 	year: number;
 	href: string;
+	/** Screenshot per device; a device without one shows an empty frame. */
+	previews?: Partial<Record<DeviceKind, string>>;
 }
 
 export interface SkillGroup {
@@ -75,6 +82,14 @@ export const stats: Stat[] = [
 ];
 
 export const projects: Project[] = [
+	{
+		title: 'Manolo Campos Hair & Makeup',
+		description: 'Bilingual website for a hair and makeup salon, with online appointment booking and an admin panel.',
+		tags: ['Online booking', 'Bilingual', 'Admin panel'],
+		year: 2026,
+		href: '#',
+		previews: { desktop: manoloDesktop, phone: manoloPhone, tablet: manoloTablet }
+	},
 	{
 		title: 'Fieldnotes',
 		description: 'A note-taking app for researchers with offline sync and instant full-text search.',

@@ -27,7 +27,7 @@
 	}
 
 	.eyebrow {
-		color: var(--color-primary);
+		color: var(--color-accent-text);
 		font-size: var(--text-sm);
 		font-weight: 600;
 		letter-spacing: 0.06em;
@@ -54,11 +54,5 @@
 
 	dt {
 		font-size: var(--text-sm);
-	}
-
-	@media (prefers-color-scheme: dark) {
-		.eyebrow {
-			color: var(--color-focus);
-		}
 	}
 </style>

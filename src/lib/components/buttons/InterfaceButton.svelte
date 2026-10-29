@@ -1,13 +1,15 @@
 <script lang="ts">
-	import type { ButtonProps } from './types';
+	import type { InterfaceButtonProps } from './types';
 
-	let { href, type = 'button', disabled = false, children }: ButtonProps = $props();
+	let { href, type = 'button', disabled = false, label, onclick, children }: InterfaceButtonProps = $props();
 </script>
 
 {#if href}
-	<a class="btn interface" {href}>{@render children()}</a>
+	<a class="btn interface" {href} aria-label={label}>{@render children()}</a>
 {:else}
-	<button class="btn interface" {type} {disabled}>{@render children()}</button>
+	<button class="btn interface" {type} {disabled} {onclick} aria-label={label}>
+		{@render children()}
+	</button>
 {/if}
 
 <style>

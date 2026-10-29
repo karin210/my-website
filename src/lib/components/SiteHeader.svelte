@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { navLinks, profile } from '$lib/data/content';
 	import SecondaryButton from './buttons/SecondaryButton.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 </script>
 
 <header id="top">
@@ -13,7 +14,10 @@
 				{/each}
 			</ul>
 		</nav>
-		<SecondaryButton href="#contact">Contact me</SecondaryButton>
+		<div class="actions">
+			<ThemeToggle />
+			<SecondaryButton href="#contact">Contact me</SecondaryButton>
+		</div>
 	</div>
 </header>
 
@@ -43,6 +47,12 @@
 		font-size: var(--text-lg);
 		font-weight: 600;
 		text-decoration: none;
+	}
+
+	.actions {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
 
 	nav {

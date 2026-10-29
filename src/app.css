@@ -1,19 +1,27 @@
+/*
+ * Themes: every themed token is `light-dark(<light>, <dark>)`. The theme follows the
+ * system by default; the toggle pins it with `data-theme` on <html>.
+ */
 :root {
+	color-scheme: light dark;
+
 	/* Color roles */
-	--color-background: #f4f6f8;
-	--color-surface: #ffffff;
-	--color-primary: #2e4a7d;
+	--color-background: light-dark(#f4f6f8, #0f172a);
+	--color-surface: light-dark(#ffffff, #172033);
+	--color-primary: light-dark(#2e4a7d, #4a6fb5);
 	--color-on-primary: #f8fafc;
-	--color-secondary: #e3eaf5;
-	--color-on-secondary: #0f172a;
+	--color-secondary: light-dark(#e3eaf5, #22304d);
+	--color-on-secondary: light-dark(#0f172a, #e4e4e7);
 	--color-tertiary: #f0a03c;
 	--color-on-tertiary: #0f172a;
 
 	/* Neutrals */
-	--color-text: #0f172a;
-	--color-text-muted: #475569;
-	--color-border: #d5dce8;
-	--color-focus: var(--color-primary);
+	--color-text: light-dark(#0f172a, #e4e4e7);
+	--color-text-muted: light-dark(#475569, #a1a9b8);
+	--color-border: light-dark(#d5dce8, #2a3650);
+	--color-focus: light-dark(#2e4a7d, #8fb0ea);
+	/* Brand-coloured text and marks that must stay readable on the page background */
+	--color-accent-text: var(--color-focus);
 
 	/* Type */
 	--font-heading: 'Fraunces', Georgia, serif;
@@ -29,23 +37,15 @@
 	--gap-section: clamp(3rem, 8vw, 6rem);
 	--gap-content: clamp(1.5rem, 4vw, 2.5rem);
 	--radius: 0.75rem;
-	--shadow-popup: 0 0.5rem 1.5rem rgb(15 23 42 / 0.18);
+	--shadow-popup: 0 0.5rem 1.5rem light-dark(rgb(15 23 42 / 0.18), rgb(0 0 0 / 0.5));
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-background: #0f172a;
-		--color-surface: #172033;
-		--color-primary: #4a6fb5;
-		--color-on-primary: #f8fafc;
-		--color-secondary: #22304d;
-		--color-on-secondary: #e4e4e7;
-		--color-text: #e4e4e7;
-		--color-text-muted: #a1a9b8;
-		--color-border: #2a3650;
-		--color-focus: #8fb0ea;
-		--shadow-popup: 0 0.5rem 1.5rem rgb(0 0 0 / 0.5);
-	}
+:root[data-theme='light'] {
+	color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+	color-scheme: dark;
 }
 
 *,
@@ -119,6 +119,19 @@ a,
 :focus-visible {
 	outline: 3px solid var(--color-focus);
 	outline-offset: 3px;
+}
+
+/* Visually hidden but still read by screen readers and focusable */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
 }
 
 /* Shared layout helpers */

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { projects } from '$lib/data/content';
+	import DevicePreview from './DevicePreview.svelte';
 	import TertiaryButton from './buttons/TertiaryButton.svelte';
 </script>
 
@@ -13,10 +14,11 @@
 		{#each projects as project (project.title)}
 			<li>
 				<article class="card">
+					<DevicePreview title={project.title} previews={project.previews} />
 					<p class="muted year">{project.year}</p>
 					<h3>{project.title}</h3>
 					<p class="muted">{project.description}</p>
-					<ul class="tags" aria-label="Technologies">
+					<ul class="tags" aria-label="Tags">
 						{#each project.tags as tag (tag)}
 							<li>{tag}</li>
 						{/each}
@@ -33,7 +35,7 @@
 <style>
 	.grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
 		gap: 1.25rem;
 	}
 
