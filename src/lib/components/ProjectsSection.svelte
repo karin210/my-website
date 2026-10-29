@@ -24,7 +24,9 @@
 						{/each}
 					</ul>
 					<div class="cta">
-						<TertiaryButton href={project.href}>View case study</TertiaryButton>
+						<TertiaryButton href={project.href} external>
+								Visit website<span class="sr-only"> for {project.title} (opens in a new tab)</span>
+							</TertiaryButton>
 					</div>
 				</article>
 			</li>
